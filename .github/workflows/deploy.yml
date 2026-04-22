@@ -6,11 +6,12 @@ on:
 
 env:
   AWS_REGION:       us-east-1
-  ECR_REPOSITORY:   nexcore-dc-dashboard
-  ECS_CLUSTER:      nexcore-dc-dashboard-cluster
-  ECS_SERVICE:      nexcore-dc-dashboard-service
-  CONTAINER_NAME:   nexcore-dc-dashboard
-
+  ECR_REPOSITORY:   AldairGC-UPY-2026
+  ECS_CLUSTER:      AldairGC-UPY-2026-cluster
+  ECS_SERVICE:      AldairGC-UPY-2026-service
+  ECS_TASK_DEFINITION: AldairGC-UPY-2026
+  CONTAINER_NAME:   streamlit-app
+  
 jobs:
   deploy:
     name: Build, Push & Deploy
