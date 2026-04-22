@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aldair Gonzalez Cardenete — UPY 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:        #0a0a0a;
+    --purple:       #4a1a6e;
+    --purple-light: #7b2fb5;
+    --gold:         #c9a84c;
+    --gold-light:   #e8c97a;
+    --white:        #f5f5f0;
+    --grey:         #1e1e1e;
+    --grey-mid:     #2a2a2a;
+    --grey-light:   #3a3a3a;
+    --emerald:      #10B981;
+    --emerald-dim:  rgba(16,185,129,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(74,26,110,0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 5%  90%, rgba(16,185,129,0.06) 0%, transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  header {
+    position: relative;
+    z-index: 1;
+    padding: 56px 80px 40px;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .course-tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .course-tag::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  h1 span { color: var(--gold); }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: rgba(245,245,240,0.4);
+    letter-spacing: 0.06em;
+    margin-bottom: 32px;
+  }
+
+  .meta-row { display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+
+  .meta-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .meta-value { font-size: 0.88rem; font-weight: 500; color: var(--white); }
+
+  /* ── MAIN ────────────────────────────────────────────── */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 0 80px 80px;
+  }
+
+  section { margin-top: 60px; }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  /* ── PROFILE CARD ────────────────────────────────────── */
+  .profile-card {
+    background: var(--grey-mid);
+    border: 1px solid var(--grey-light);
+    border-left: 3px solid var(--emerald);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--emerald));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    border: 2px solid var(--emerald);
+  }
+
+  .profile-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .profile-role {
+    font-size: 0.82rem;
+    color: var(--emerald);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .profile-bio {
+    font-size: 0.85rem;
+    color: rgba(245,245,240,0.6);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ── FACT GRID ───────────────────────────────────────── */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .fact-block {
+    background: var(--grey-mid);
+    padding: 24px 28px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .fact-block:hover {
+    background: var(--grey-light);
+    border-bottom-color: var(--gold);
+  }
+
+  .fact-icon {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .fact-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .fact-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .fact-desc {
+    font-size: 0.78rem;
+    color: rgba(245,245,240,0.45);
+    line-height: 1.6;
+  }
+
+  /* ── HOBBY CHIPS ─────────────────────────────────────── */
+  .hobby-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hobby-chip {
+    background: var(--emerald-dim);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: var(--emerald);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* ── TECH STACK ──────────────────────────────────────── */
+  .tech-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+  }
+
+  .tech-block {
+    background: var(--grey-mid);
+    padding: 16px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .tech-block:hover {
+    background: var(--grey-light);
+    border-bottom-color: var(--purple-light);
+  }
+
+  .tech-name {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .tech-role {
+    font-size: 0.68rem;
+    color: rgba(245,245,240,0.35);
+    margin-top: 4px;
+  }
+
+  /* ── PROJECT CARD ────────────────────────────────────── */
+  .project-card {
+    background: var(--grey-mid);
+    border: 1px solid var(--grey-light);
+    border-left: 3px solid var(--purple-light);
+    padding: 24px 28px;
+    transition: background 0.2s;
+  }
+
+  .project-card:hover { background: var(--grey-light); }
+
+  .project-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .project-desc {
+    font-size: 0.82rem;
+    color: rgba(245,245,240,0.55);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(123,47,181,0.15);
+    border: 1px solid rgba(123,47,181,0.35);
+    color: var(--purple-light);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-family: 'Courier Prime', monospace;
+    margin: 2px;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--grey-light);
+    margin: 0 80px;
+    padding: 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-left {
+    font-family: 'Cinzel', serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,245,240,0.2);
+    text-transform: uppercase;
+  }
+
+  .footer-right {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.66rem;
+    color: rgba(201,168,76,0.3);
+  }
+
+  @media (max-width: 768px) {
+    header, main { padding-left: 24px; padding-right: 24px; }
+    footer { margin: 0 24px; }
+    .profile-card { grid-template-columns: 1fr; text-align: center; }
+    .fact-grid, .tech-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-tag">UPY · Data & AI Engineering · E-CED-2 · 2026</div>
+  <h1>Aldair <span>Gonzalez</span> Cardenete</h1>
+  <p class="subtitle">Data & AI Engineering Student · Universidad Politécnica de Yucatán</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label">Program</span>
+      <span class="meta-value">Data & AI Engineering</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Period</span>
+      <span class="meta-value">January – April 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Course</span>
+      <span class="meta-value">Data Centers — E-CED-2</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Instructor</span>
+      <span class="meta-value">Jorge J. Pedrozo Romero, Ph.D.</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- PROFILE -->
+  <section>
+    <div class="section-title">Profile</div>
+    <div class="profile-card">
+      <div class="avatar">AG</div>
+      <div>
+        <div class="profile-name">Aldair Gonzalez Cardenete</div>
+        <div class="profile-role">Data & AI Engineering · 4th Quadrimester</div>
+        <p class="profile-bio">
+          Engineering student passionate about cloud infrastructure, data systems, and AI.
+          Currently building a multi-page Streamlit dashboard deployed on AWS ECS Fargate
+          as the final project for the Data Centers course at UPY.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL FACTS -->
+  <section>
+    <div class="section-title">About Me</div>
+    <div class="fact-grid">
+
+      <div class="fact-block">
+        <div class="fact-icon">🍽️</div>
+        <div class="fact-label">Favorite Food</div>
+        <div class="fact-value">Tacos al Pastor</div>
+        <div class="fact-desc">
+          Nothing beats a good taco — especially late at night after a long coding session.
+        </div>
+      </div>
+
+      <div class="fact-block">
+        <div class="fact-icon">💡</div>
+        <div class="fact-label">Fun Fact</div>
+        <div class="fact-value">I built my first PC at age 14</div>
+        <div class="fact-desc">
+          Taking apart and rebuilding machines taught me more about hardware than any textbook.
+          That curiosity eventually led me to cloud infrastructure and data centers.
+        </div>
+      </div>
+
+      <div class="fact-block" style="grid-column: span 2;">
+        <div class="fact-icon">🎯</div>
+        <div class="fact-label">Hobbies</div>
+        <div class="fact-value" style="margin-bottom: 10px;">Things I enjoy outside of class</div>
+        <div class="hobby-list">
+          <span class="hobby-chip">🏋️ Weight Training</span>
+          <span class="hobby-chip">🎮 Video Games</span>
+          <span class="hobby-chip">🎸 Guitar</span>
+          <span class="hobby-chip">📚 Tech Reading</span>
+          <span class="hobby-chip">🚴 Cycling</span>
+          <span class="hobby-chip">☕ Specialty Coffee</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section>
+    <div class="section-title">Tech Stack</div>
+    <div class="tech-row">
+      <div class="tech-block">
+        <div class="tech-name">Python</div>
+        <div class="tech-role">Main language</div>
+      </div>
+      <div class="tech-block">
+        <div class="tech-name">AWS</div>
+        <div class="tech-role">ECS · ECR · S3 · ALB</div>
+      </div>
+      <div class="tech-block">
+        <div class="tech-name">Terraform</div>
+        <div class="tech-role">Infrastructure as Code</div>
+      </div>
+      <div class="tech-block">
+        <div class="tech-name">Docker</div>
+        <div class="tech-role">Containerization</div>
+      </div>
+      <div class="tech-block">
+        <div class="tech-name">GitHub Actions</div>
+        <div class="tech-role">CI/CD</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL PROJECT -->
+  <section>
+    <div class="section-title">Final Project — DC-Ops Dashboard</div>
+    <div class="project-card">
+      <div class="project-title">NexCore DataSystems MX — DC Operations Dashboard</div>
+      <p class="project-desc">
+        A five-page Streamlit dashboard covering data center operations, energy efficiency (PUE),
+        physical security & ISO 27001 compliance, Mexico DC market intelligence, and an emerging
+        technology radar. Deployed on AWS ECS Fargate via Docker and Terraform with a fully automated
+        CI/CD pipeline on GitHub Actions.
+      </p>
+      <div>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Docker</span>
+        <span class="tag">AWS ECS Fargate</span>
+        <span class="tag">Terraform</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Tier III+</span>
+        <span class="tag">ISO 27001</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-left">Universidad Politécnica de Yucatán · Data Centers · E-CED-2 · 2026</div>
+  <div class="footer-right">Aldair Gonzalez Cardenete · S3 Static Site Lab</div>
+</footer>
+
+</body>
+</html>

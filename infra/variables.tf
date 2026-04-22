@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Project name used for resource naming"
   type        = string
-  default     = "nexcore-dc-dashboard"
+  default     = "AldairGC-UPY.2026"
 }
 
 variable "container_port" {
@@ -38,4 +38,10 @@ variable "image_tag" {
   description = "Docker image tag to deploy (injected by CI/CD)"
   type        = string
   default     = "latest"
+}
+
+variable "bucket_name" {
+  description = "S3 bucket name for static site hosting (must be globally unique, lowercase)"
+  type        = string
+  default     = "aldairgc-upy-2026"
 }

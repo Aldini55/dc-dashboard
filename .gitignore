@@ -9,4 +9,5 @@ data/*.csv
 *.tfstate.backup
 .terraform.lock.hcl
 *.tfvars.backup
+infra/terraform.tfvars
 .DS_Store

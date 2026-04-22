@@ -17,3 +17,13 @@ output "ecs_service_name" {
   description = "ECS service name"
   value       = aws_ecs_service.app.name
 }
+
+output "s3_website_url" {
+  description = "Public URL of the S3 static site — submit this for the lab"
+  value       = "http://${aws_s3_bucket_website_configuration.static_site.website_endpoint}"
+}
+
+output "s3_bucket_name" {
+  description = "S3 bucket name"
+  value       = aws_s3_bucket.static_site.bucket
+}
