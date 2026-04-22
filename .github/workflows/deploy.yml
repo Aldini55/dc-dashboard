@@ -7,10 +7,10 @@ on:
 env:
   AWS_REGION:       us-east-1
   ECR_REPOSITORY:   aldairgc-upy-2026
-  ECS_CLUSTER:      AldairGC-UPY-2026-cluster
-  ECS_SERVICE:      AldairGC-UPY-2026-service
-  ECS_TASK_DEFINITION: AldairGC-UPY-2026
-  CONTAINER_NAME:   streamlit-app
+  ECS_CLUSTER:      aldairgc-upy-2026-cluster
+  ECS_SERVICE:      aldairgc-upy-2026-service
+  ECS_TASK_DEFINITION: aldairgc-upy-2026
+  CONTAINER_NAME:   aldairgc-upy-2026
   
 jobs:
   deploy:
