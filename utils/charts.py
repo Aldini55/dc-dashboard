@@ -124,8 +124,7 @@ def radar_chart(categories: list, values_list: list, names: list) -> go.Figure:
             name=name,
             line=dict(color=colors[i % len(colors)], width=2),
             fill="toself",
-            fillcolor=colors[i % len(colors)].replace(")", ",0.15)").replace("rgb", "rgba")
-                if "rgb" in colors[i % len(colors)] else colors[i % len(colors)] + "26",
+            fillcolor="rgba(100, 149, 237, 0.2)",
         ))
     fig.update_layout(
         **_LAYOUT,
@@ -208,6 +207,6 @@ def gantt_timeline(df: pd.DataFrame) -> go.Figure:
         yaxis=dict(autorange="reversed", color="#9CA3AF"),
         barmode="overlay",
         height=400,
-        legend=dict(title="Phase"),
+        showlegend=True,
     )
     return fig
